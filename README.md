@@ -1,9 +1,1 @@
-{
-    "name": "shopping-cart-example"
-  , "version": "0.0.1"
-  , "dependencies": {
-        "express": "2.5.9"
-      , "jade": "0.19.0"
-      , "mysql": "2.11.1"
-    }
-}
+这是一个使用node搭建的服务后台，从数据库中获得相关图书信息，并呈现在网页上
