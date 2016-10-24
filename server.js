@@ -6,6 +6,7 @@
 var express = require('express')
   , mysql = require('mysql')
   , config = require('./config')
+  , path = require('path');
 
 /**
  * Create app.
@@ -24,8 +25,9 @@ app.use(express.bodyParser());
  * Configure app.
  */
 
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
+app.use(express.static(path.join(__dirname, 'public')));
 
 /**
  * Main route
