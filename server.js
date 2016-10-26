@@ -34,8 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 
 app.get('/', function (req, res, next) {
-  db.query('SELECT id, title, description FROM item', function (err, results) {
-    res.render('index', { items: results });
+  db.query('SELECT id, title, author,path FROM book', function (err, results) {
+    res.render('layout.ejs', { items: results });
   });
 });
 
