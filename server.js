@@ -44,11 +44,17 @@ app.get('/', function (req, res, next) {
  */
 
 app.post('/create', function (req, res, next) {
-  db.query('INSERT INTO item SET title = ?, description = ?',
-  [req.body.title, req.body.description], function (err, info) {
-    if (err) return next(err);
-    console.log(' - item created with id %s', info.insertId);
-    res.redirect('/');
+  var img = req.files.image;
+  var name = img.name;
+  var path = join(dirname, img.name);
+  fs.rename(img.path, path, function(err) {
+	  if(err) return next(err);
+      db.query('INSERT INTO item SET title = ?, author = ?, path = ?, description = ?',
+     [req.body.title, req.body.author,path,req.body.description], function (err, info) {
+       if (err) return next(err);
+       console.log(' - item created with id %s', info.insertId);
+       res.redirect('/');
+	 });
   });
 });
 
