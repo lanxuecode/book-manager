@@ -35,7 +35,7 @@
 	<body>
 		<div class="container">
 		    <div class="addbook">
-			  <form action="" method="POST">
+			  <form action="/create" method="POST" enctype="multipart/form-data">
 			    <fieldset>
 	            <legend>添加新书</legend>
 			    <section>
@@ -48,7 +48,7 @@
 				</section>
 			    <section>
 				  <label for="image">封面</label>
-			      <input type="file" id="image" name="image" accept="image/png, image/jpg"  value="选择图片" placeholder="123"/>
+			      <input type="file" id="image" name="image" accept="image/*"  value="选择图片" placeholder="123"/>
 				</section>
 				<section>
 				  <label for="desc">描述</label>
